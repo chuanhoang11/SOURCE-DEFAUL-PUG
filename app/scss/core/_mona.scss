@@ -1,0 +1,117 @@
+.mona-content {
+    strong,
+    b {
+        font-weight: bold;
+    }
+    em,
+    i {
+        font-style: italic;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        line-height: 1.3;
+        margin-bottom: 0.5em;
+        margin-top: 0.6em;
+    }
+    h1 {
+        font-size: 1.7em;
+    }
+    h2 {
+        font-size: 1.6em;
+    }
+    h3 {
+        font-size: 1.25em;
+    }
+    h4 {
+        font-size: 1.125em;
+    }
+    h5 {
+        font-size: 1em;
+    }
+    h6 {
+        font-size: 0.85em;
+    }
+    p {
+        margin: 1em 0;
+    }
+    ul,
+    ol {
+        margin: 1em 0;
+        list-style-position: inside;
+    }
+    ul ul,
+    ul ol,
+    ol ul,
+    ol ol {
+        margin-left: 1em;
+    }
+    ul {
+        list-style-type: disc;
+    }
+    ol {
+        list-style-type: decimal;
+    }
+    ul ul,
+    ol ul {
+        list-style-type: circle;
+    }
+    ol ol,
+    ul ol {
+        list-style-type: lower-latin;
+    }
+    img,
+    iframe {
+        max-width: 100% !important;
+        height: auto;
+    }
+    blockquote {
+        background: #f9f9f9;
+        border-left: 10px solid #ccc;
+        margin: 1em 0;
+        padding: 1em;
+        quotes: "\201C""\201D""\2018""\2019";
+        &::before {
+            color: #ccc;
+            content: open-quote;
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            vertical-align: -0.4em;
+        }
+        p {
+            display: inline;
+        }
+    }
+    table {
+        border-collapse: collapse;
+        max-width: 100%;
+        margin: 1em 0;
+        border: 1px solid #e1e1e1;
+        th,
+        td {
+            border-right: 1px solid #e1e1e1;
+            border-bottom: 1px solid #e1e1e1;
+            padding: 5px 10px;
+            vertical-align: middle;
+        }
+    }
+    .mona-youtube-wrap {
+        position: relative;
+        height: 0;
+        padding-top: 56.25%;
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .mona-table-wrap {
+        overflow: auto;
+    }
+}
