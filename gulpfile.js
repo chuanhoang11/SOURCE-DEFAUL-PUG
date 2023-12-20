@@ -1,7 +1,6 @@
 const gulp = require("gulp");
 const pug = require("gulp-pug");
 const sass = require("gulp-sass");
-const imagemin = require("gulp-imagemin");
 const uglify = require("gulp-uglify");
 const babel = require("gulp-babel");
 const browsersync = require("browser-sync").create();
@@ -10,6 +9,8 @@ const cache = require("gulp-cache");
 const del = require("del");
 const plumber = require("gulp-plumber");
 const sourcemaps = require("gulp-sourcemaps"); 
+const tinypng = require('gulp-tinypng-compress');
+
 
 /* Options
  * ------ */
@@ -52,6 +53,23 @@ function copyGetfile() {
   return gulp.src(['app/views/getfile.php']).pipe(gulp.dest('template'));
 }
 copyGetfile();
+
+//Tiny PNG
+var API_KEY = [
+  '8FiQFj9oWwEyTBHMMwxjvuYNx05Fphk2'
+];
+
+function optimizeImages() {
+  return gulp.src('app/assets/images/**/*.{png,jpg,jpeg}')
+  .pipe(tinypng({
+      key: 'FGoVcM6w4vm17yx_H4DCdqoePrn4CF2Z',
+      sigFile: 'images/.tinypng-sigs',
+      log: true
+  }))
+  .pipe(gulp.dest('template/assets/images'));
+}
+optimizeImages()
+
 
 /* Browser-sync
  * ------------ */
@@ -145,13 +163,6 @@ function views() {
 function images() {
   return gulp
     .src(options.images.src)
-    .pipe(
-      cache(
-        imagemin({
-          interlaced: true,
-        })
-      )
-    )
     .pipe(gulp.dest(options.images.dest));
 }
 
