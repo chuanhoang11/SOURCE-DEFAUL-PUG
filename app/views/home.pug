@@ -1,0 +1,23 @@
+extends layout/layout
+block vars
+    -title = 'Home'
+    -mainClass = 'page-home'
+    -bodyClass = 'home'
+    -hdClass = 'header-2'
+
+block container
+    .list 
+        each i in Array(10)
+            .item 
+                .img
+                    .inner
+                        +img("product.jpg")
+                .content 
+                    h3.name 
+                        a(href="") Hoa qua
+                    p.des hoa qua tuoi
+    +Popup("popup-contact")
+        .title Heloo
+    +Popup("popup-buy")
+        .title hi
+

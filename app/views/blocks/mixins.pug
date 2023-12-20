@@ -1,2 +1,16 @@
-mixin img(name)
+mixin img(name = "banner.jpg")
   img(src="./assets/images/" + name, alt="")
+mixin btn(name, button,classIcon)
+  if(button != "button") 
+    a(href="#").btn
+      span.text #{name} 
+      if(classIcon)
+        i(class=classIcon)
+  else
+    button(type="submit").btn
+        span.text #{name} 
+mixin Popup(classCustom)
+  .popup(class=classCustom, data-popup="")
+    .popup-wrapper 
+      block
+    
