@@ -1,17 +1,19 @@
 // Library
-@import url("../js/library/fontawesome/css/all.css");
-@import url("../js/library/fontawesome/fontawesome/fontawesome.css");
-@import url("../js/library/aos/aos.css");
-@import url("../js/library/swiper/swiper-bundle.min.css");
-@import url("../js/library/select2/select2.min.css");
-@import url("../js/library/gallery/lightgallery.min.css");
-@import url("../js/library/fancybox/fancybox.css");
+@import url("../assets/library/fontawesome/css/all.css");
+@import url("../assets/library/fontawesome/fontawesome/fontawesome.css");
+@import url("../assets/library/aos/aos.css");
+@import url("../assets/library/swiper/swiper-bundle.min.css");
+@import url("../assets/library/select2/select2.min.css");
+@import url("../assets/library/gallery/lightgallery.min.css");
+@import url("../assets/library/fancybox/fancybox.css");
 // Core
 @import "./core/reset";
 @import "./core/mona";
 @import "./core/variable";
 @import "./core/font";
 @import "./core/base";
+@import "./core/mixin";
+
 
 // Component
 @import "./components/header";
@@ -19,5 +21,3 @@
 
 // Layout
 @import "./layouts/btn";
-// Pages
-@import "./pages/home";

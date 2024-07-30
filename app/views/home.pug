@@ -3,11 +3,14 @@ block vars
     -title = 'Home'
     -mainClass = 'page-home'
     -bodyClass = 'home'
-    -hdClass = 'header-2'
+    -hdClass = ''
+    -jsCores = ['jquery/jquery', 'aos/aos', 'swiper-bundle.min']
+    -jsModifiers = ['tab', 'banner']
+    -cssModifiers = []
 
 block container
     .list 
-        each i in Array(10)
+        each i in Array(1)
             .item 
                 .img
                     .inner

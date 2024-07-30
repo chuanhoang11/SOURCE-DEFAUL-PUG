@@ -5,7 +5,10 @@ block vars
 	-mainClass = ''
 	-bodyClass = ''
 	-hdClass = ''
-
+	-jsCores = []	
+	-jsModifiers = []
+	-cssModifiers = []
++globalVars()
 doctype html
 html(lang="en")
 	head
@@ -18,8 +21,10 @@ html(lang="en")
 		meta(http-equiv='X-UA-Compatible' content='IE=edge')
 		meta(name='viewport' content='width=device-width, initial-scale=1.0')
 		link(rel='stylesheet' href='./css/style.css')
-		link(rel='stylesheet' href='./css/backdoor.css')
 		link(rel='icon' type='image/png' href='./assets/images/mona.png')
+		block css
+			each cssModifier in cssModifiers
+				link(rel='stylesheet' href='./css/'+ cssModifier + '.css')
 	body(class=bodyClass)
 		block header
 			include ../blocks/header
@@ -27,5 +32,10 @@ html(lang="en")
 			block container
 		block footer
 			include ../blocks/footer
-		block layer
-		include ../blocks/scripts
+		block script 
+			each jsCore in jsCores
+				script(src='./assets/library/'+ jsCore + ".js")
+			script(src='./js/main.js')
+			each jsModifier in jsModifiers
+				script(src='./js/'+ jsModifier + ".js")
+			

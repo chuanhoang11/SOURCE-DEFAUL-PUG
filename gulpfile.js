@@ -8,10 +8,12 @@ const autoprefixer = require("gulp-autoprefixer");
 const cache = require("gulp-cache");
 const del = require("del");
 const plumber = require("gulp-plumber");
-const sourcemaps = require("gulp-sourcemaps"); 
+const sourcemaps = require("gulp-sourcemaps");
 const tinypng = require('gulp-tinypng-compress');
 const gulpIf = require('gulp-if');
 const fs = require('fs');
+const cleanCSS = require('gulp-clean-css');
+const rename = require("gulp-rename");
 /* Options
  * ------ */
 const options = {
@@ -21,7 +23,7 @@ const options = {
     dest: "template",
   },
   styles: {
-    src: "app/scss/**/*.scss",
+    src: ["app/scss/**/*.scss", "app/scss/blocks/*.scss"],
     dest: "template/css",
   },
   scripts: {
@@ -102,7 +104,12 @@ function styles() {
         this.emit("end");
       })
     )
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
+    // .pipe(rename(function (filePath) {
+    //   if (filePath.dirname.includes('blocks') && filePath.basename.startsWith("_")) {
+    //     filePath.basename = filePath.basename.substring(1);
+    //   }
+    // }))
     .pipe(sass().on("error", sass.logError))
     .pipe(
       autoprefixer({
@@ -111,6 +118,7 @@ function styles() {
         grid: true,
       })
     )
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(options.styles.dest))
     .pipe(
@@ -122,6 +130,8 @@ function styles() {
 
 /* Scripts
  * ------ */
+
+
 
 function scripts() {
   return gulp
