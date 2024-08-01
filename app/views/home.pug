@@ -4,23 +4,11 @@ block vars
     -mainClass = 'page-home'
     -bodyClass = 'home'
     -hdClass = ''
-    -jsCores = ['jquery/jquery', 'aos/aos', 'swiper-bundle.min']
-    -jsModifiers = ['tab', 'banner']
-    -cssModifiers = []
+    -jsLibs = [JsJquery, JsAos, JsSwiper]
+    -jsComponents = ['tab', 'banner']
+    -cssLibs = [CssAos, CssSwiper]
+    -cssComponents = ['banner']
+    -cssPages = ['home', 'about']
 
 block container
-    .list 
-        each i in Array(1)
-            .item 
-                .img
-                    .inner
-                        +img("product.jpg")
-                .content 
-                    h3.name 
-                        a(href="") Hoa qua
-                    p.des hoa qua tuoi
-    +Popup("popup-contact")
-        .title Heloo
-    +Popup("popup-buy")
-        .title hi
-
+   

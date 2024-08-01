@@ -23,7 +23,7 @@ const options = {
     dest: "template",
   },
   styles: {
-    src: ["app/scss/**/*.scss", "app/scss/blocks/*.scss"],
+    src: ["app/scss/**/*.scss", "app/scss/blocks/*.scss", "app/scss/pages/*.scss"],
     dest: "template/css",
   },
   scripts: {

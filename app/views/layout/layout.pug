@@ -1,14 +1,17 @@
-block mixins
+block variable
+	include ../variable/globals
+block mixin
 	include ../blocks/mixins
 block vars
 	-title = 'NamePage'
 	-mainClass = ''
 	-bodyClass = ''
 	-hdClass = ''
-	-jsCores = []	
-	-jsModifiers = []
-	-cssModifiers = []
-+globalVars()
+	-jsLibs= []	
+	-jsComponents = []
+	-cssLibs = []
+	-cssComponents = []
+	-cssPages = []
 doctype html
 html(lang="en")
 	head
@@ -23,8 +26,12 @@ html(lang="en")
 		link(rel='stylesheet' href='./css/style.css')
 		link(rel='icon' type='image/png' href='./assets/images/mona.png')
 		block css
-			each cssModifier in cssModifiers
-				link(rel='stylesheet' href='./css/'+ cssModifier + '.css')
+			each cssLib in cssLibs
+				link(rel='stylesheet' href='./assets/library/'+ cssLib)
+			each cssComponent in cssComponents
+				link(rel='stylesheet' href='./css/blocks/'+ cssComponent + '.css')
+			each cssPage in cssPages
+				link(rel='stylesheet' href='./css/pages/'+ cssPage + '.css')
 	body(class=bodyClass)
 		block header
 			include ../blocks/header
@@ -33,9 +40,9 @@ html(lang="en")
 		block footer
 			include ../blocks/footer
 		block script 
-			each jsCore in jsCores
-				script(src='./assets/library/'+ jsCore + ".js")
+			each jsLib in jsLibs
+				script(src='./assets/library/'+ jsLib)
 			script(src='./js/main.js')
-			each jsModifier in jsModifiers
-				script(src='./js/'+ jsModifier + ".js")
+			each jsComponent in jsComponents
+				script(src='./js/'+ jsComponent + ".js")
 			
