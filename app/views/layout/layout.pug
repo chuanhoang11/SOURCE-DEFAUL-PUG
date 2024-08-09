@@ -23,11 +23,11 @@ html(lang="en")
 		meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1.0")
 		meta(http-equiv='X-UA-Compatible' content='IE=edge')
 		meta(name='viewport' content='width=device-width, initial-scale=1.0')
-		link(rel='stylesheet' href='./css/style.css')
 		link(rel='icon' type='image/png' href='./assets/images/mona.png')
 		block css
 			each cssLib in cssLibs
 				link(rel='stylesheet' href='./assets/library/'+ cssLib)
+			link(rel='stylesheet' href='./css/style.css')
 			each cssComponent in cssComponents
 				link(rel='stylesheet' href='./css/blocks/'+ cssComponent + '.css')
 			each cssPage in cssPages
